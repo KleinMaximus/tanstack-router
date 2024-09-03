@@ -112,10 +112,13 @@ export type StringifyParamsFn<TPath extends string, TParams> = (
   params: TParams,
 ) => ResolveParams<TPath>
 
+export type TestParamsFn<TParams> = (params: TParams) => boolean;
+
 export type ParamsOptions<TPath extends string, TParams> = {
   params?: {
     parse: ParseParamsFn<TPath, TParams>
     stringify: StringifyParamsFn<TPath, TParams>
+    test?: TestParamsFn<TParams>;
   }
 
   /** 

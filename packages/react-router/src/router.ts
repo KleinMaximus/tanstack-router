@@ -1008,7 +1008,7 @@ export class Router<
         },
       )
 
-      if (matchedParams) {
+      if (matchedParams && route.options.params?.test?.(matchedParams) !== false) {
         routeParams = matchedParams
         return true
       }
